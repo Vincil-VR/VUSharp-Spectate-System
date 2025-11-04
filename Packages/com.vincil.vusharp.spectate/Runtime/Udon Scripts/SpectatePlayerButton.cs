@@ -36,11 +36,13 @@ namespace Vincil.VUSharp.Spectate
         {
             if(trackingMethod == null)
             {
-                Debug.LogError("trackingMethod is null");
+                Debug.LogError("[Spectate System Button] TrackingMethod is null", this);
+                return;
             }
             if (spectateUI == null)
             {
-                Debug.LogError("spectateUI is null");
+                Debug.LogError("[Spectate System Button] SpectateUI is null", this);
+                return;
             }
             spectateUI.StartNewSpectating(trackingMethod);
         }

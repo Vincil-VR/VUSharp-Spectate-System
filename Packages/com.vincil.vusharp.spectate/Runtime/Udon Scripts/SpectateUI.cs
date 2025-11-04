@@ -55,7 +55,7 @@ namespace Vincil.VUSharp.Spectate
         {
             if (autoManage)
             {
-                Debug.LogWarning($"Manually adding players to spectate screen while system is auto managed");
+                Debug.LogWarning($"[Spectate System] Manually adding players to spectate screen while system is auto managed", this);
             }
             AddPlayerInternal(player, buttonPrefab);
         }
@@ -64,7 +64,7 @@ namespace Vincil.VUSharp.Spectate
         {
             if (autoManage)
             {
-                Debug.LogWarning($"Manually adding players to spectate screen while system is auto managed");
+                Debug.LogWarning($"[Spectate System] Manually adding players to spectate screen while system is auto managed", this);
             }
             AddPlayerInternal(player);
         }
@@ -73,7 +73,7 @@ namespace Vincil.VUSharp.Spectate
         {
             if (autoManage)
             {
-                Debug.LogWarning($"Manually removing players from spectate screen while system is auto managed");
+                Debug.LogWarning($"[Spectate System] Manually removing players from spectate screen while system is auto managed", this);
             }
             RemovePlayerInternal(player);
         }
@@ -82,7 +82,7 @@ namespace Vincil.VUSharp.Spectate
         {
             if (autoManage)
             {
-                Debug.LogWarning($"Manually clearing all players from spectate screen while system is auto managed");
+                Debug.LogWarning($"[Spectate System] Manually clearing all players from spectate screen while system is auto managed", this);
             }
             RemoveAllPlayersInternal();
         }
@@ -107,6 +107,11 @@ namespace Vincil.VUSharp.Spectate
         private void AddPlayerInternal(VRCPlayerApi player, GameObject buttonPrefab)
         {
             if (excludeLocalPlayer && player.isLocal) return;
+            if (playerButtonsByID.ContainsKey(player.playerId))
+            {
+                Debug.Log("[Spectate System] Tried to add already added player", this);
+                return;
+            }
             GameObject buttonGO = Instantiate(buttonPrefab, scrollContentPlayerList.transform);
             SpectatePlayerButton button = buttonGO.GetComponent<SpectatePlayerButton>();
             playerButtonsByID.SetValue(player.playerId, button);
@@ -135,7 +140,7 @@ namespace Vincil.VUSharp.Spectate
             }
             else
             {
-                Debug.LogError($"Error trying to remove player button: {token.Error}");
+                Debug.LogError($"[Spectate System] Error trying to remove player button: {token.Error}", this);
             }
         }        
 
