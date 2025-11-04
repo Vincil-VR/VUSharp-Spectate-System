@@ -8,5 +8,8 @@
   "author": {
     "name": "Vincil",
     "url": "https://github.com/Vincil-VR"
+  },
+  "vpmDependencies": {
+    "com.vrchat.worlds": "3.9.0"
   }
 }
