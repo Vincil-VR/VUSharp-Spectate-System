@@ -6,10 +6,13 @@
   "unity": "2022.3",
   "unityRelease": "22f1",
   "author": {
+    "email": "vincilvrdev@gmail.com",
     "name": "Vincil",
     "url": "https://github.com/Vincil-VR"
   },
   "vpmDependencies": {
     "com.vrchat.worlds": "3.9.0"
   }
+  "documentationUrl": "https://github.com/Vincil-VR/VUSharp-Spectate-System",
+  "license": "MIT",
 }
