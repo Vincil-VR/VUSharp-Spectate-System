@@ -62,7 +62,7 @@ namespace Vincil.VUSharp.Spectate
         /// <summary>
         /// Sets if spectating is enabled.
         /// </summary>
-        /// <param name="value">bool: true enables spectating, false disabled it</param>
+        /// <param name="value">bool: true enables spectating, false disables it</param>
         public abstract void SetSpectatingEnabled(bool value);
     }
 }

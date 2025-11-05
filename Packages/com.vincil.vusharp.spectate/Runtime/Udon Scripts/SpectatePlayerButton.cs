@@ -9,10 +9,7 @@ namespace Vincil.VUSharp.Spectate
     [UdonBehaviourSyncMode(BehaviourSyncMode.None)]
     public class SpectatePlayerButton : UdonSharpBehaviour
     {
-        [SerializeField] private TextMeshProUGUI textField;
-
         SpectateUI spectateUI;
-        //VRCPlayerApi player;
         SpectateTrackingMethod trackingMethod;
 
         internal void Setup(VRCPlayerApi player, Camera spectateCamera, SpectateUI spectateUI)
@@ -21,7 +18,7 @@ namespace Vincil.VUSharp.Spectate
             trackingMethod.SetPlayerAndCamera(player, spectateCamera);
             this.spectateUI = spectateUI;
 
-            textField.text = player.displayName;
+            GetComponentInChildren<TextMeshProUGUI>().text = player.displayName;
         }
 
         internal SpectateTrackingMethod GetTrackingMethod()

@@ -23,9 +23,11 @@ namespace Vincil.VUSharp.Spectate
         [Tooltip("Whether the local player will be excluded from the spectator system. Set to false if you want players to be able to spectate themselves.")]
         [SerializeField] private bool excludeLocalPlayer = true;
 
-        [Header("References")]
+        [Header("Default Button Prefab")]
         [Tooltip("The default button prefab to use when adding players to the spectate UI.")]
         [SerializeField] private GameObject defaultButtonPrefab;
+
+        [Header("References")]        
         [SerializeField] private Camera spectateCamera;
         [SerializeField] private GameObject autoManageNonSpectatedZone;
 
