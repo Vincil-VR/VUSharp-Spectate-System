@@ -1,4 +1,4 @@
-# Vincil Udon Spectate System
+# VUSharp Spectate System
 
 A simple spectating system for Udon VRC Worlds that supports per-player custom tracking and default behavior
 
