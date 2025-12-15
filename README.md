@@ -20,7 +20,7 @@ A simple spectating system for Udon VRC Worlds that supports per-player custom t
 
 ### VRChat Package Manager
 
-<https://vincil-vr.github.io/VPM-Listings/>
+<https://vincil-vr.github.io/VUSharp-Spectating-System-Listing/>
 
   
 
