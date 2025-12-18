@@ -107,7 +107,72 @@ Removes all players from the spectate UI.
 
   
 
-Sets if spectating is enabled.  True enables spectating, false disables it.
+Sets if spectating is enabled.  True enables spectating, false disables it.  The spectating system starts enabled by default.
+
+### Example:
+```c#
+using UdonSharp;
+using UnityEngine;
+using VRC.SDKBase;
+using Vincil.VUSharp.Spectate;
+using VRC.SDK3.Data;
+
+namespace Vincil.VUSharp.Example
+{
+    public class ManualSystemManagementExample : UdonSharpBehaviour
+    {
+        [SerializeField] GameObject evilButtonPrefab;
+        [SerializeField] GameObject goodButtonPrefab;
+
+        readonly string evilRoleName = "Evil";
+        public string EvilRoleName => evilRoleName;
+        readonly string goodRoleName = "Good";
+        public string GoodRoleName => goodRoleName;
+
+        private SpectateSystem spectateSystem;
+        private DataDictionary roleNameToPrefab = new DataDictionary();
+
+        void Start()
+        {
+            spectateSystem = SpectateSystem.Instance();
+            roleNameToPrefab.Add(evilRoleName, evilButtonPrefab);
+            roleNameToPrefab.Add(goodRoleName, goodButtonPrefab);
+        }
+
+        public void OnPlayerJoinRound(VRCPlayerApi player)
+        {
+            spectateSystem.AddPlayer(player);
+        }
+
+        public void OnPlayerJoinRound(VRCPlayerApi player, string playerRoleName)
+        {
+            if (roleNameToPrefab.ContainsKey(playerRoleName))
+            {
+                spectateSystem.AddPlayer(player, (GameObject)roleNameToPrefab[playerRoleName].Reference);
+            }
+            else
+            {
+                Debug.LogError($"Couldn't find role matching role name {playerRoleName}");
+            }
+        }
+
+        public void OnPlayerLeaveRound(VRCPlayerApi player)
+        {
+            spectateSystem.RemovePlayer(player);
+        }
+
+        public void OnRoundEnd()
+        {
+            spectateSystem.RemoveAllPlayers();
+        }
+
+        public void SetSpectatingEnabled(bool value)
+        {
+            spectateSystem.SetSpectatingEnabled(value);
+        }
+    }
+}
+```
 
   
 
