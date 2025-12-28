@@ -1,6 +1,6 @@
 {
   "name": "com.vincil.vusharp.spectate",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "displayName": "VUSharp Spectate System",
   "description": "A simple spectating system for Udon VRC Worlds",
   "unity": "2022.3",
