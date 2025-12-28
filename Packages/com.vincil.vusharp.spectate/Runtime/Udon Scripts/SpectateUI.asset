@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: SpectateUI
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 95aa78da62a4d49428873fecd9fe70a4,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: 3184c48e177e28a4aa3d2792458612d8,
     type: 2}
   udonAssembly: 
   assemblyError: 

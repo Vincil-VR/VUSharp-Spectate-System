@@ -11,7 +11,7 @@
     "url": "https://github.com/Vincil-VR"
   },
   "vpmDependencies": {
-    "com.vrchat.worlds": "3.9.0"
+    "com.vrchat.worlds": "3.x.x"
   },
   "documentationUrl": "https://github.com/Vincil-VR/VUSharp-Spectate-System",
   "license": "MIT"
